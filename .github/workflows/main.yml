@@ -1,9 +1,9 @@
 
 # yamllint disable rule:truthy
-on:
-  release:
-    types:
-      - published
+on: [push]
+#  release:
+#    types:
+#      - published
 
 permissions:
   contents: read
