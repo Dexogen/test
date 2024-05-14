@@ -1,4 +1,3 @@
-
 # yamllint disable rule:truthy
 on: [push]
 #  release:
@@ -11,7 +10,7 @@ permissions:
   id-token: write
 
 env:
-  REPO_NAME: pipbs
+  REPO_NAME: test
   CODENAME: bookworm
   COMPONENTS: main
   ARCHITECTURES: arm64
