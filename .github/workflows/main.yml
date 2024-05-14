@@ -19,14 +19,16 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Runs a single command using the runners shell
-      - uses: arkane-systems/apt-repo-update@v1.1
+      - uses: jrandiny/apt-repo-action@v1
         with:
-          debug: false
           github_token: ${{ secrets.PAT }}
-          repo_supported_arch: |
+          arch: |
             arm64
-          repo_supported_distro: |
+          version: |
             bookworm
+          file: my_program_bionic.deb
+          file_target_version: bionic
+          public_key: ${{ secrets.PUBLIC }}
           private_key: ${{ secrets.PRIVATE }}
           key_passphrase: ${{ secrets.SECRET }}
 
