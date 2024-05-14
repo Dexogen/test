@@ -23,15 +23,16 @@ jobs:
       artifact_id: ${{ steps.upload-artifact.outputs.artifact-id }}
       keyring: ${{ steps.create-apt-repo.outputs.keyring }}
     steps:
-#      - name: Checkout code
-#        uses: actions/checkout@v4
-#      - name: Setup Pages
-#        uses: actions/configure-pages@v4
-#      - name: Create packages
-#        run: |
-#          ...
-#          do something funny to create your packages using e.g. fpm, nfpm, ....
-#          ...
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      - name: Create packages
+        uses: robinraju/release-downloader@v1.10
+        with:
+          repository: 'wofferl/proxmox-backup-arm64'
+          latest: true
+          fileName: '*.deb'
       - uses: morph027/apt-repo-action@v2
         id: create-apt-repo
         with:
